@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="ISO-8859-1">
+<title>Ejemplos de HTML5</title>
 </head>
 <body>
-<meter value="2" min="0" max="10">2 out of 10</meter>
-<br>
-<meter value="0.6">60%</meter>
-<menu type="context" id="mymenu">
-  <menuitem label="Refresh" onclick="window.location.reload();" icon="ico_reload.png">
-  </menuitem>
-  <menu label="Share on...">
-    <menuitem label="Twitter" icon="ico_twitter.png"
-    onclick="window.open('//twitter.com/intent/tweet?text='+window.location.href);">
-    </menuitem>
-    <menuitem label="Facebook" icon="ico_facebook.png"
-    onclick="window.open('//facebook.com/sharer/sharer.php?u='+window.location.href);">
-    </menuitem>
-  </menu>
-  <menuitem label="Email This Page"
-  onclick="window.location='mailto:?body='+window.location.href;"></menuitem>
-</menu>
+	<article>
+		<h1>Ejemplos de HTML5</h1>
+		<p>En esta <abbr title="página">pág.</abbr> se describen algunos <abbr title="ejemplos">ejs.</abbr> de HTML5.</p>
+		Están destinados a la asignatura:
+		<address>
+			Tecnologías y Sistemas Web<br>
+			Escuela Superior de Informática - UCLM<br>
+			España<br>
+		</address>
+	</article>
+	<p>
+		Medida: <input type="number" id="medida" onclick="updateBarra()" onkeyup="updateBarra()">
+		<meter id="barra" min="0" max="10"></meter>
+	</p>
+
+	<img src="res/alumnoyprofe.png" usemap="mapaFotoAlumnoYProfe" alt="Un alumno y un profesor">
+	<map name="#mapaFotoAlumnoYProfe">
+		<area shape="rect" coords="184,32,240,124" alt="Un alumno" href="javascript:alert('Un alumno')">
+		<area shape="rect" coords="337,28,404,125" alt="Un profesor" href="javascript:alert('Un profesor')">
+	</map>
+
+	<audio controls>
+		<source src="res/Bird.mp3" type="audio/mp3">
+	</audio>
 </body>
+
+<script>
+function updateBarra() {
+	var cajaMedida=document.getElementById("medida");
+	var n=cajaMedida.value;
+	if (n<0) {
+		n=0;
+		cajaMedida.value=0;
+	} else if (n>10) {
+		n=10;
+		cajaMedida.value=10;
+	} 
+	var barra=document.getElementById("barra");
+	barra.value=n;
+}
+</script>
 </html>

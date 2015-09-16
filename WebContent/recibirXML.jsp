@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="application/xml; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="application/xml" pageEncoding="ISO-8859-1"%>
 
 <xml>
 	<persona>
@@ -8,9 +7,9 @@
 		<apellido2>von Honhenheim</apellido2>
 		<alias>Paracelso</alias>
 		<profesiones>
-			<profesion>MÃ©dico</profesion>
+			<profesion>Médico</profesion>
 			<profesion>Alquimista</profesion>
-			<profesion>AstrÃ³logo</profesion>
+			<profesion>Astrólogo</profesion>
 		</profesiones>
 	</persona>
 </xml>

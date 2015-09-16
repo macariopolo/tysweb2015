@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,11 +24,11 @@
 				String[] municipios=new String[3];
 				if (provincia!=null) {
 					if (provincia.equals("Albacete")) {
-						municipios[0]="HellÃ­n"; municipios[1]="La Roda"; municipios[2]="Chinchilla";
+						municipios[0]="Hellín"; municipios[1]="La Roda"; municipios[2]="Chinchilla";
 					} else if (provincia.equals("Ciudad Real")) {
 						municipios[0]="Alcubillas"; municipios[1]="Ruidera"; municipios[2]="Santa Cruz de Mudela";
 					} else if (provincia.equals("Cuenca")) {
-						municipios[0]="Mota del Cuervo"; municipios[1]="TarancÃ³n"; municipios[2]="Tragacete";
+						municipios[0]="Mota del Cuervo"; municipios[1]="Tarancón"; municipios[2]="Tragacete";
 					} else if (provincia.equals("Guadalajara")) {
 						municipios[0]="Clares"; municipios[1]="Madrigal"; municipios[2]="Setiles";
 					} else if (provincia.equals("Toledo")) {
