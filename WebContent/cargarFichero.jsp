@@ -27,6 +27,12 @@ while ((x=f.read())!=-1) {
 		codigo+="&nbsp; &nbsp; &nbsp;";
 	else if (c=='"')
 		codigo+="\\\"";
+	else if (c=='[')
+		codigo+="&#91;";
+	else if (c==']') 
+		codigo+="&#93;";
+	else if (c=='\\') 
+			codigo+="&#92;";
 	else
 		codigo+=c;
 }
@@ -34,6 +40,7 @@ while ((x=f.read())!=-1) {
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 </head>
 <body>
 	<h1>Se muestra el fichero <i><%= fileName %></i></h1>
@@ -53,6 +60,7 @@ while ((x=f.read())!=-1) {
 	</table>
 </body>
 
+
 <script>
 	var zonaDeCodigo=document.getElementById("codigo");
 	var codigo="<%= codigo%>";
@@ -64,5 +72,4 @@ while ((x=f.read())!=-1) {
 	     (i).height=iframeHeight+20;
 	   } 
 </script>
-
 </html>

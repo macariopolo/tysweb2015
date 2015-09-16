@@ -30,7 +30,7 @@ function cargarMunicipios() {
 
 </head>
 <body>
-	<form name="provincias" method="get">
+	<form name="provincias">
 		Provincia: <select name="provincia" id="provincia" onchange="cargarMunicipios()">
 			<option value="Albacete" <%= provincia!=null && provincia.equals("Albacete") ? "selected" : "" %>>Albacete</option>
 			<option value="Ciudad Real" <%= provincia!=null && provincia.equals("Ciudad Real") ? "selected" : "" %>>Ciudad Real</option>

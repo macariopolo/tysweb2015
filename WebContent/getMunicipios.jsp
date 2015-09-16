@@ -3,9 +3,6 @@
 [
 <%
 String provincia=request.getParameter("provincia");
-java.util.Enumeration<String> pars=request.getParameterNames();
-while (pars.hasMoreElements())
-	System.out.println(pars.nextElement());
 
 String[] municipios=new String[3];
 if (provincia!=null) {
