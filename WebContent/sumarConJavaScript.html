@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sumar con Javascript</title>
+</head>
+<body>
+	<form>
+		a: <input type="text" id="a" value="5"><br>
+		b: <input type="text" id="b" value="4"><br>
+		<button type="button" onclick="sumar()">Sumar</button>
+	</form>
+	<div id="resultado"></div>
+	
+	<script>
+	function sumar() {
+		var a=parseInt(document.getElementById("a").value);
+		var b=parseInt(document.getElementById("b").value);
+		var divResultado=document.getElementById("resultado");
+		divResultado.innerHTML=a+b;
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Clase "Persona"</title>
+<script>
+var pepe=new Persona();
+pepe.nombre="Pepe";
+pepe.apellidos="Pérez Pérez";
+pepe.edad=20;
+
+function Persona() {
+	this.nombre=null;
+	this.apellidos=null;
+	this.edad=0;
+}
+
+Persona.prototype.cumplir=function() {
+	this.edad=this.edad+1;
+	rellenarFormulario();
+}
+
+Persona.prototype.enJSONCreandoCadena = function() {
+	return "{\"nombre\" : \"" + this.nombre + "\", " +
+		"\"apellidos\" : \"" + this.apellidos + "\", " +
+		"\"edad\" : \"" + this.edad + "\"}";
+}
+
+function rellenarFormulario() {
+	document.getElementById("nombre").value=pepe.nombre;
+	document.getElementById("apellidos").value=pepe.apellidos;
+	document.getElementById("edad").value=pepe.edad
+}
+
+function mostrarEnJSON() {
+	document.getElementById("texto").innerHTML=pepe.enJSONCreandoCadena();
+}
+
+</script>
+</head>
+<body onload="rellenarFormulario()">
+	<h1>Clase "Persona"</h1>
+	<form>
+		Nombre: <input type="text" id="nombre"><br>
+		Apellidos: <input type="text" id="apellidos"><br>
+		Edad: <input type="text" id="edad"><button type="button" onclick="pepe.cumplir()">Cumplir años</button><br>
+		<button type="button" onclick="mostrarEnJSON()">Mostrar el objeto en JSON</button>
+	</form>
+	<div id="texto"></div>
+</body>
+
+
+</html>

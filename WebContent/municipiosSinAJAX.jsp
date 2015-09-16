@@ -6,6 +6,10 @@
 <title>Municipios sin AJAX</title>
 <%
 	String provincia=request.getParameter("provincia");
+	if (provincia!=null) {
+		out.flush();
+		Thread.sleep(3000);
+	}
 %>
 </head>
 <body>

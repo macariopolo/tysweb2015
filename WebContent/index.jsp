@@ -69,7 +69,7 @@
 						<td>Muy parecido a sumarConAJAX.jsp. En este caso, el servidor devuelve el resultado como application/json y, además, 
 						hace una pausa de 3 segundos antes de enviarnos
 						el resultado. En la función Javascript <code>suma()</code>, se va mostrando el cambio de estado </td>
-						<td><button type="button" onclick="verCodigo('sumarConAJAX.jsp')">Ver</button></td>
+						<td><button type="button" onclick="verCodigo('sumarConAJAXTardando.jsp')">Ver</button></td>
 					</tr>
 					<tr>
 						<td><a href="sumarTardando.jsp">sumarTardando.jsp</a></td>
@@ -98,6 +98,25 @@
 							<code>municipiosConAJAX.jsp</code>, los carga y devuelve los resultados en JSON.</td>
 						<td><button type="button" onclick="verCodigo('getMunicipios.jsp')">Ver</button></td>
 					</tr>	
+				</table>
+				
+				<table border="1">
+					<tr><th colspan="3">Javascript</th></tr>
+					<tr>
+						<th>Fichero</th><th>Descripción</th><th>Ver código y resultado</th>
+					</tr>
+					<tr>
+						<td><a href="sumarConJavaScript.html">sumarConJavaScript.html</a></td>
+						<td>Se escriben 2 números <i>a</i> y <i>b</i>. La suma <i>a+b</i> se calcula y muestra directamente en el cliente. 
+						</td>
+						<td><button type="button" onclick="verCodigo('sumarConJavaScript.html')">Ver</button></td>
+					</tr>
+					<tr>
+						<td><a href="clasePersona.html">clasePersona.html</a></td>
+						<td>Se crea una clase <code>Persona</code> con Javascript. 
+						</td>
+						<td><button type="button" onclick="verCodigo('clasePersona.html')">Ver</button></td>
+					</tr>
 				</table>
 				
 				<table border="1">
