@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejemplos de content-type</title>
+</head>
+<body>
+	<h1>Ejemplos de content-type</h1>	
+	
+	<table border="1">
+		<tr><th colspan="2">Content-Type</th></tr>
+		<tr>
+			<th>Descripción</th><th>Ver código y resultado</th>
+		</tr>
+		<tr><td><a href="index.jsp">Recibir <code>Content-Type : text/html</code></a> </td>
+			<td><button type="button" onclick="verCodigo('index.jsp')">Ver</button>
+		</tr>
+		<tr>
+			<td><a href="recibirJSON.jsp">Recibir <code>Content-Type : application/json</code></a></td>
+			<td><button type="button" onclick="verCodigo('recibirJSON.jsp')">Ver</button></td>
+		</tr>	
+		<tr>
+			<td><a href="recibirXML.jsp">Recibir <code>Content-Type : application/xml</code></a></td>
+			<td><button type="button" onclick="verCodigo('recibirXML.jsp')">Ver</button></td>
+		</tr>	
+		<tr>
+			<td><a href="recibirContentTypeInventado.jsp">Recibir <code>Content-Type : application/meLoInvento</code></a></td>
+			<td><button type="button" onclick="verCodigo('recibirContentTypeInventado.jsp')">Ver</button></td>
+		</tr>	
+		<tr>
+			<td><a href="recibirFalsoPNG.jsp">Recibir <code>Content-Type : img/png</code> (sin que sea una imagen)</a></td>
+			<td><button type="button" onclick="verCodigo('recibirFalsoPNG.jsp')">Ver</button></td>
+		</tr>		
+	</table>
+	<script src="ejemplos.js"></script>
+</body>
+</html>

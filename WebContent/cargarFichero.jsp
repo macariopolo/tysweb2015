@@ -50,10 +50,10 @@ while ((x=f.read())!=-1) {
 			<th>Código</th>
 		</tr>
 		<tr>
-			<td valign="top" style="width:60%">
+			<td valign="top" style="width:50%">
 				<iframe id="resultado" onload="autoResize(this)" frameborder="0" src="<%=fileName %>" width="100%"></iframe>
 			</td>
-			<td valign="top" style="width:40%" height="100%">
+			<td valign="top" style="width:50%" height="100%">
 				<code id="codigo"></code>
 			</td>
 		</tr>
