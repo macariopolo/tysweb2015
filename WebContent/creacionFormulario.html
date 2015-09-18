@@ -50,6 +50,7 @@ function addForm() {
 	}	
 	var formulario=document.createElement("form");
 	formulario.setAttribute("id", "formulario");
+	formulario.setAttribute("style", "background-color: #b0c4de");
 	
 	areaFormulario.appendChild(formulario);
 }
@@ -71,10 +72,14 @@ function addTextBox() {
 		caja.setAttribute("id", idDeLaCaja);
 		caja.setAttribute("width", 40);
 		var etiqueta=document.createElement("label");
+		etiqueta.setAttribute("id", "labelDe" + idDeLaCaja);
 		etiqueta.setAttribute("for", idDeLaCaja);
 		etiqueta.innerHTML=idDeLaCaja;
-		formulario.appendChild(caja);
+		var salto=document.createElement("br");
+		salto.setAttribute("id", "saltoDe" + idDeLaCaja);
 		formulario.appendChild(etiqueta);
+		formulario.appendChild(caja);
+		formulario.appendChild(salto);
 	}
 }
 
@@ -85,8 +90,12 @@ function removeTextBox() {
 		alert("No se encuentra la caja llamada " + idDeLaCaja);
 		return;
 	}
+	var etiqueta=document.getElementById("labelDe" + idDeLaCaja);
+	var salto=document.getElementById("saltoDe" + idDeLaCaja);
 	var formulario=document.getElementById("formulario");
 	formulario.removeChild(caja);
+	formulario.removeChild(etiqueta);
+	formulario.removeChild(salto);
 }
 </script>
 </html>

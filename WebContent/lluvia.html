@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lluvia</title>
+</head>
+<body>
+	<h1>Lluvia</h1>
+	
+	<svg width="500" height="500" id="areaDibujo" style="background-color:grey">
+	</svg>
+
+	<script>
+		var areaDibujo=document.getElementById("areaDibujo");
+		var ancho=areaDibujo.width.baseVal.value;
+		var alto=areaDibujo.height.baseVal.value;
+		
+		function Gota(x) {		
+			this.nodoGota=document.createElementNS("http://www.w3.org/2000/svg", "circle");
+			this.nodoGota.setAttribute("id", "gota" + x);
+			this.nodoGota.setAttribute("cx", x);
+			this.nodoGota.setAttribute("cy", 0);
+			this.nodoGota.setAttribute("r", Math.random()*5);
+			this.nodoGota.setAttribute("stroke", "blue");
+			this.nodoGota.setAttribute("stroke-width", "4");
+			this.nodoGota.setAttribute("fill", "blue");
+			areaDibujo.appendChild(this.nodoGota);		
+		}
+		
+		var gotas=new Array();
+		var NUM_GOTAS = 450;
+		for (var i=0; i<NUM_GOTAS; i++) {
+			var gota=new Gota(i);
+			gotas.push(gota);
+		}
+		
+		//for (var t=0; t<300; t++)
+			setInterval(llover, 100);
+		
+		function llover() {
+			for (var i=0; i<NUM_GOTAS; i++) {
+				var gota=gotas[i];
+				var caida=Math.random()*4;
+				gota.nodoGota.cy.baseVal.value=gota.nodoGota.cy.baseVal.value+caida;
+			}
+		}
+	</script>
+</body>
+</html>

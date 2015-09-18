@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Círculos aleatorios</title>
+</head>
+<body>
+	<h1>Círculos aleatorios</h1>
+	
+	<svg width="500" height="500" id="areaDibujo" style="background-color:grey">
+	</svg>
+
+	<script>
+		var areaDibujo=document.getElementById("areaDibujo");
+		
+		function Circulo() {
+			var ancho=areaDibujo.width.baseVal.value;
+			var alto=areaDibujo.height.baseVal.value;
+			
+			this.x=Math.round(Math.random()*ancho);
+			this.y=Math.round(Math.random()*alto);
+			this.radio=Math.round(Math.random()*ancho/5);
+			this.colorR=Math.round(Math.random()*255);
+			this.colorG=Math.round(Math.random()*255);
+			this.colorB=Math.round(Math.random()*255);
+		}
+		
+		Circulo.prototype.dibujar = function() {
+			var nodoCirculo=document.createElementNS("http://www.w3.org/2000/svg", "circle");
+			nodoCirculo.setAttribute("cx", this.x);
+			nodoCirculo.setAttribute("cy", this.y);
+			nodoCirculo.setAttribute("r", this.radio);
+			nodoCirculo.setAttribute("stroke", "green");
+			nodoCirculo.setAttribute("stroke-width", "4");
+			nodoCirculo.setAttribute("fill", "rgb(" + this.colorR + ", " + this.colorG + ", " + this.colorB + ")");
+			areaDibujo.appendChild(nodoCirculo);
+			
+		}
+
+		for (var i=0; i<10; i++) {
+			var c=new Circulo();
+			c.dibujar();
+		}
+		
+	
+	</script>
+</body>
+</html>

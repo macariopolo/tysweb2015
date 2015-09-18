@@ -14,7 +14,8 @@
 		<li><a href="ejemplosRequestsYResponsesEnElServidor.html">Requests y Responses en el servidor</a></li>
 		<li><a href="ejemplosCookies.html">Cookies</a></li>
 		<li><a href="ejemplosJavascript.html">Javascript</a></li>
-		<li><a href="ejemplosDOM.html">DOM + Javascript</a></li>
+		<li><a href="ejemplosDOMYJavascript.html">DOM + Javascript</a></li>
+		<li><a href="ejemplosSVG.html">SVG</a></li>
 		<li><a href="ejemplosHTML5.html">HTML5</a></li>
 	</ul>
 </body>
