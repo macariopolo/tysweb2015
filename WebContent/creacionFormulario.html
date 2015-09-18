@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Creación dinámica de un formulario</title>
+</head>
+<body>
+	<h1>Creación dinámica de un formulario</h1>
+	
+	<table>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>
+							<button type="button" onclick="addForm()">Añadir formulario</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" onclick="addTextBox()">Añadir caja de texto</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="button" onclick="removeTextBox()">Borrar caja de texto</button>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr>
+						<td>
+							<div id="areaFormulario"></div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+
+<script type="text/javascript">
+var areaFormulario=document.getElementById("areaFormulario");
+function addForm() {
+	if (document.getElementById("formulario")!=undefined) {
+		alert("Ya hay un formulario");
+		return;
+	}	
+	var formulario=document.createElement("form");
+	formulario.setAttribute("id", "formulario");
+	
+	areaFormulario.appendChild(formulario);
+}
+
+function addTextBox() {
+	var formulario=document.getElementById("formulario");
+	if (formulario==null) {
+		alert("Primero debes crear el formulario");
+		return;
+	}
+	var idDeLaCaja=prompt("Id de la caja:", "caja");
+	if (document.getElementById(idDeLaCaja)!=null) {
+		alert("Ya existe una caja llamada " + idDeLaCaja);
+		return;
+	}
+	if (idDeLaCaja!=null) {
+		var caja=document.createElement("input");
+		caja.setAttribute("type", "text");
+		caja.setAttribute("id", idDeLaCaja);
+		caja.setAttribute("width", 40);
+		var etiqueta=document.createElement("label");
+		etiqueta.setAttribute("for", idDeLaCaja);
+		etiqueta.innerHTML=idDeLaCaja;
+		formulario.appendChild(caja);
+		formulario.appendChild(etiqueta);
+	}
+}
+
+function removeTextBox() {
+	var idDeLaCaja=prompt("Id de la caja:", "caja");
+	var caja=document.getElementById(idDeLaCaja);
+	if (caja==null) {
+		alert("No se encuentra la caja llamada " + idDeLaCaja);
+		return;
+	}
+	var formulario=document.getElementById("formulario");
+	formulario.removeChild(caja);
+}
+</script>
+</html>
