@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Funciones de callback</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+	$("#nombre").keyup(
+		function() {
+			$("#eco").text("Te llamas " + $("#nombre").val());
+			$("#atributos").html("Lo estás escribiendo en la siguiente caja: <i>id=" + $("#nombre").attr("id") + ", size=" + $("#nombre").attr("size") + "</i>");
+		}),
+	$("#url").keyup(
+			function() {
+				$("#enlace").attr("href", $("#url").val());
+				$("#enlace").html("http://" + $("#url").val());
+			}),
+	$("#palabraIzquierda").click(function() {
+		$("#parrafo1").prepend("La ");
+	}),
+	$("#palabraFinal").click(function() {
+		$("#parrafo1").append("caballo.");
+	}),
+	$("#otroParrafo").click(function() {
+		$("#parrafo1").after("<pre>Mas viniéndole a la memoria los consejos de su huésped\n"+
+				"acerca de las prevenciones tan necesarias que había de llevar consigo,\n" +
+				"en especial la de los dineros y camisas, determinó volver a su casa y\n" +
+				"acomodarse de todo, y de un escudero, haciendo cuenta de recibir a un\n" +
+				"labrador vecino suyo, que era pobre y con hijos, pero muy a propósito\n" +
+				"para el oficio escuderil de la caballería.</pre>");
+	}),
+	$("#titulo").click(function() {
+		var texto=document.createElement("h1");
+		texto.innerHTML="Capítulo IV";
+		$("#parrafo1").before(texto);
+	})
+});
+</script>
+</head>
+<body>
+	<p>
+		Por favor, escribe tu nombre: <input type="text" id="nombre" size="40" maxlength="40">
+	</p>
+	<div id="eco"></div>
+	<div id="atributos"></div>
+	
+	<p>
+		Escribe una url: <input type="text" id="url" size="40" maxlength="40">
+	</p>
+	<a id="enlace"></a>
+	
+	<table>
+		<tr>
+			<td>
+				<button id="palabraIzquierda">Añadir primera palabra</button>
+			</td>
+			<td>
+				<button id="palabraFinal">Añadir palabra final</button>
+			</td>
+			<td>
+				<button id="otroParrafo">Añadir párrafo</button>
+			</td>
+			<td>
+				<button id="titulo">Título</button>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+	<pre id="parrafo1">
+del alba sería cuando Don Quijote salió de la venta, tan contento, 
+tan gallardo, tan alborozado por verse ya armado caballero, 
+que el gozo le reventaba por las cinchas del
+</pre>			
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

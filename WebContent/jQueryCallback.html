@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Funciones de callback</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<style>
+	button {
+		padding:5px;
+		background-color: cyan;
+		border: 1px solid #666;
+		color:#000;
+		text-decoration:none;
+	}
+	.celdaCambiante {
+		background-color: cyan;
+	}
+	.celdaCambianteConHover {
+		background-color: cyan;
+	}
+	.caja, .cajaMultiplesEventos {
+		color: #ff0000;
+	}
+</style>
+<script>
+
+$(document).ready(function() {
+	$("#lineaConCallback").click(
+		function() {
+			$("#parrafitoConCallback").slideToggle("slow", 
+					function() {
+						alert("Se terminó de expandir o contraer el div de la izquierda")
+					})
+		})
+});
+
+$(document).ready(function() {
+	$("#lineaSinCallback").click(
+		function() {
+			$("#parrafitoSinCallback").slideToggle("slow"),
+			alert("Aún no se terminó de expandir o contraer el div de la derecha")
+		})
+});
+
+$(document).ready(function() {
+	$("#lineaConMethodChaining").click(
+		function() {
+			$("#parrafitoConMethodChaining").slideToggle("slow").slideUp("slow");
+		})
+});
+
+$(document).ready(function() {
+	$("#lineaCon3MethodChaining").click(
+		function() {
+			$("#parrafitoCon3MethodChaining").slideToggle("slow").delay(1000).slideUp("slow");
+		})
+});
+
+</script>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<td>
+				<table border="1">
+					<tr>
+						<th colspan="4">
+							<div id="lineaConCallback">
+								<p style="margin:0px">Cuando pulsas aquí, se expande un <code>div</code> y, luego, se muestra un alert.</p>
+							</div>
+							<div id="parrafitoConCallback" style="display:none;background-color:GhostWhite">
+								<pre>En esta página se muestran ejemplos de
+llamadas a funciones
+de callback con jQuery.
+
+								</pre>
+							</div>
+						</th>
+					</tr>
+				</table>
+			</td>
+						<td>
+				<table border="1">
+					<tr>
+						<th colspan="4">
+							<div id="lineaSinCallback">
+								<p style="margin:0px">El efecto aquí es parecido, pero el alert se muestra antes de que termine de expandirse.</p>
+							</div>
+							<div id="parrafitoSinCallback" style="display:none;background-color:GhostWhite">
+								<pre>En esta página se muestran ejemplos de
+llamadas a funciones
+de callback con jQuery.
+
+								</pre>
+							</div>
+						</th>
+					</tr>
+				</table>
+			</td>
+		<tr>
+		
+		<tr>
+			<td>
+				<table border="1">
+					<tr>
+						<th colspan="4">
+							<div id="lineaConMethodChaining">
+								<p style="margin:0px">Cuando pulsas aquí, se expande un <code>div</code> y luego se contrae.</p>
+							</div>
+							<div id="parrafitoConMethodChaining" style="display:none;background-color:GhostWhite">
+								<pre>En esta página se muestran ejemplos de
+llamadas a funciones
+de callback con jQuery.
+Bueno, en este caso concreto no;
+en este caso se muestra encadenamiento
+de métodos.
+								</pre>
+							</div>
+						</th>
+					</tr>
+				</table>
+			</td>
+						<td>
+				<table border="1">
+					<tr>
+						<th colspan="4">
+							<div id="lineaCon3MethodChaining">
+								<p style="margin:0px">Cuando pulsas aquí, se expande un <code>div</code>, espera 1 segundo y luego se contrae.</p>
+							</div>
+							<div id="parrafitoCon3MethodChaining" style="display:none;background-color:GhostWhite">
+								<pre>En esta página se muestran ejemplos de
+llamadas a funciones
+de callback con jQuery.
+Bueno, en este caso concreto no;
+en este caso se muestra encadenamiento
+de métodos.
+								</pre>
+							</div>
+						</th>
+					</tr>
+				</table>
+			</td>
+		<tr>
+	</table>
+</body>
+</html>
