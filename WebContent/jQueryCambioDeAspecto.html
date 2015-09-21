@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cambio del aspecto con jQuery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<style>
+	button {
+		padding:5px;
+		background-color: cyan;
+		border: 1px solid #666;
+		color:#000;
+		text-decoration:none;
+	}
+	.celdaCambiante {
+		background-color: cyan;
+	}
+	.celdaCambianteConHover {
+		background-color: cyan;
+	}
+	.caja, .cajaMultiplesEventos {
+		color: #ff0000;
+	}
+</style>
+<script>
+$(document).ready(function() {
+	$("button").click(function() {
+		$(this).css("background-color","#cccccc")
+	}),
+	$("#resetear").click(function() {
+		$("button").css("background-color","cyan")
+	});
+});
+
+$(document).ready(function() {
+	$(".celdaCambiante").mouseenter(function() {
+		$(this).css("background-color","green")
+	}),
+	$(".celdaCambiante").mouseleave(function() {
+		$(this).css("background-color","cyan")
+	})
+});
+
+$(document).ready(function() {
+	$(".celdaCambianteConHover").hover(
+		function() {
+			$(this).css("background-color","green")
+		},
+		function() {
+			$(this).css("background-color","cyan")
+		})
+});
+
+$(document).ready(function() {
+	$(".caja").focus(
+		function() {
+			$(this).css("color","green")
+		})
+});
+
+$(document).ready(function() {
+	$(".cajaMultiplesEventos").on({
+		mouseenter: function(){
+            $(this).attr("value", "Evento mousenter");
+        },  
+        mouseleave: function(){
+            $(this).attr("value", "Evento mouseleave");
+        }, 
+        click: function(){
+            $(this).attr("value", "Evento click");
+        },
+        keypress: function() {
+        	$(this).attr("value", "Evento keypress");
+        }
+	})
+});
+
+$(document).ready(function() {
+	$("#botonIzquierdo").click(
+		function() {
+			$("#botonDerecho").toggle();
+		})
+});
+
+$(document).ready(function() {
+	$("#botonFadeIn").click(
+		function() {
+			$("#textoOculto").fadeIn();
+		}),
+	$("#botonFadeOut").click(
+		function() {
+			$("#textoOculto").fadeOut();
+		}),
+	$("#botonFadeToggle").click(
+		function() {
+			$("#textoOculto2").fadeToggle();
+		})
+});
+
+$(document).ready(function() {
+	$("#primeraLinea").click(
+		function() {
+			$("#parrafito").slideToggle("slow");
+		})
+});
+
+$(document).ready(function() {
+	$(".difuminable").click(
+		function() {
+			$(this).fadeTo("slow", 0.15);
+		})
+});
+
+$(document).ready(function() {
+	$(".animado").click( 
+			function() {
+				$(this).animate({width: '300px'})
+			}
+		)
+});
+	
+</script>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th colspan="4">
+				<div id="primeraLinea">
+					<p style="margin:0px">Los botones de abajo cambian de color cuando los pulsas.</p>
+					<p id="segundaLinea" style="margin:0px">También puedes pulsarme a mí y verás qué pasa.</p>
+				</div>
+				<div id="parrafito" style="display:none;background-color:GhostWhite">
+					<pre>En esta página se muestran ejemplos de
+cómo cambiar el aspecto de 
+una página dinámicamente con jQuery.
+					</pre>
+				</div>
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<button type="button">Púlsame</button>
+			</td>
+			<td>
+				<button type="button">Púlsame</button>
+			</td>
+			<td>
+				<button type="button">Púlsame</button>
+			</td>
+			<td>
+				<button type="button">Púlsame</button>
+			</td>
+		</tr>
+		
+		<tr>
+			<th colspan="4" id="resetear">
+				Si pulsas en esta celda, reaparecen los colores iniciales
+			</th>
+		</tr>
+		<tr>
+			<th colspan="4" class="celdaCambiante">
+				Pasa el ratón por acá. Se responde a los eventos <code>mouseenter</code> y <code>mouseleave</code>
+			</th>
+		</tr>
+		<tr>
+			<th colspan="4" class="celdaCambianteConHover">
+				Pasa el ratón por acá. Se responde al evento <code>hover</code>, que "unifica" <code>mouseenter</code> y <code>mouseleave</code>
+			</th>
+		</tr>
+		<tr>
+			<th colspan="4">
+				<input type="text" value="Ponle el foco a esta caja" size="40" class="caja"/>
+			</th>
+		</tr>
+		<tr>
+			<th colspan="4">
+				<input type="text" value="Esta otra caja responde a diversos eventos con &quot;on&quot;" size="70" class="cajaMultiplesEventos"/>
+			</th>
+		</tr>
+		<tr>
+			<th colspan="4">
+				El botón izquierdo hace, mediante <code>toggle</code> (que unifica <code>hide</code> y <code>show</code>) que aparezca y desaparezca el botón derecho.
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<button type="button" id="botonIzquierdo">Púlsame</button>
+			</td>
+			<td colspan="3">
+				<button type="button" id="botonDerecho">Aparezco y desaparezco</button>
+			</td>
+		</tr>
+		<tr>
+			<th colspan="4">
+				El botón izquierdo hace, mediante <code>fadeIn</code> hace que aparezca un texto debajo. El derecho, lo oculta.
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<button type="button" id="botonFadeIn">Púlsame</button>
+			</td>
+			<td colspan="2">
+				<div id="textoOculto" hidden="hidden">
+					Aparecí por fin
+				</div>
+			</td>
+			<td>
+				<button type="button" id="botonFadeOut">Púlsame</button>
+			</td>
+		</tr>
+		<tr>
+			<th colspan="4">
+				Aquí se hace lo mismo que arriba, pero con un solo botón que responde a <code>fadeToggle</code>.
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<button type="button" id="botonFadeToggle">Púlsame</button>
+			</td>
+			<td colspan="3">
+				<div id="textoOculto2" hidden="hidden">
+					Aparecí por fin
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th colspan="4">
+				Aquí se difuminan unos recuadros.
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<div id="divRojo" class="difuminable" style="width:80px;height:80px;background-color:red;"></div>
+			</td>
+			<td>
+				<div id="divVerde" class="difuminable" style="width:80px;height:80px;background-color:green;"></div><br>
+			</td>
+			<td>
+				<div id="divAzul" class="difuminable" style="width:80px;height:80px;background-color:blue;"></div>
+			</td>
+			<td>
+				<div id="divAmarillo" class="difuminable" style="width:80px;height:80px;background-yellow;"></div>
+			</td>
+		</tr>
+		<tr>
+			<th colspan="4">
+				<button class="animado">Púlsame</button>
+			</th>
+		</tr>
+	</table>
+</body>
+</html>

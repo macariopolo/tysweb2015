@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ocultamiento de botones con jQuery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+	$("button").click(function() {
+		$(this).hide();
+	}),
+	$("#aparecer").click(function() {
+		$("button").show();
+	});
+});
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<th colspan="4">
+				Estos botones se ocultan cuando los pulsas
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<button type="button">Púlsame</button>
+			</td>
+			<td>
+				<button type="button">Púlsame</button>
+			</td>
+			<td>
+				<button type="button">Púlsame</button>
+			</td>
+			<td>
+				<button type="button">Púlsame</button>
+			</td>
+		</tr>
+		
+		<tr>
+			<th colspan="4" id="aparecer">
+				Si pulsas en esta celda, aparecen los botones anteriores
+			</th>
+		</tr>
+	</table>
+</body>
+</html>

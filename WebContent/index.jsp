@@ -17,6 +17,7 @@
 		<li><a href="ejemplosDOMYJavascript.html">DOM + Javascript</a></li>
 		<li><a href="ejemplosSVG.html">SVG</a></li>
 		<li><a href="ejemplosHTML5.html">HTML5</a></li>
+		<li><a href="ejemplosJQuery.html">jQuery</a></li>
 	</ul>
 </body>
 
